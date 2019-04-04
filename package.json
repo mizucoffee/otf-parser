@@ -1,0 +1,28 @@
+{
+  "name": "otf-parser",
+  "version": "0.0.1",
+  "description": "OTF File Parser",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": "https://github.com/mizucoffee/otf-parser.git",
+  "author": "Ritsuki Goto <develop@mizucoffee.net>",
+  "private": false,
+  "scripts": {
+    "test": "jest --coverage",
+    "coverage": "jest --coverage; cat ./coverage/lcov.info | coveralls",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.0",
+    "coveralls": "^3.0.3",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.1",
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.4.1"
+  }
+}
