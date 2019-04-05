@@ -1,5 +1,5 @@
 ![otf-parser-Logo](https://raw.githubusercontent.com/mizucoffee/otf-parser/master/otf-parser.png)
-<h2 align="center">OTF File Parser</h2>
+<h1 align="center">OTF File Parser</h1>
 
 <p align="center"><a href="https://travis-ci.org/mizucoffee/otf-parser"><img src="https://travis-ci.org/mizucoffee/otf-parser.svg?branch=develop" alt="Build Status" /></a>
 <a href="https://coveralls.io/github/mizucoffee/otf-parser?branch=develop"><img src="https://coveralls.io/repos/github/mizucoffee/otf-parser/badge.svg?branch=develop" alt="Coverage Status" /></a>
