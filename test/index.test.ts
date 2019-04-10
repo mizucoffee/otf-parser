@@ -17,6 +17,13 @@ describe('F5.6 - OTF', () => {
       expect(t.entrySelector).toBe(Math.log2(2**i))
       expect(t.rangeShift).toBe(t.numTables * 16 - t.searchRange)
     })
+    test('TableRecord', () => {
+      const t = result.tables
+      expect(t[0].tableTag).toEqual('CFF ')
+      expect(t[0].checkSum).toBe(2022354963)
+      expect(t[0].offset).toBe(1664)
+      expect(t[0].length).toBe(9244)
+    })
   })
 })
 
@@ -35,6 +42,13 @@ describe('RetroScape - TTF', () => {
       expect(t.searchRange).toBe(2**i * 16)
       expect(t.entrySelector).toBe(Math.log2(2**i))
       expect(t.rangeShift).toBe(t.numTables * 16 - t.searchRange)
+    })
+    test('TableRecord', () => {
+      const t = result.tables
+      expect(t[0].tableTag).toEqual('OS/2')
+      expect(t[0].checkSum).toBe(278272361)
+      expect(t[0].offset).toBe(2768)
+      expect(t[0].length).toBe(96)
     })
   })
 })
