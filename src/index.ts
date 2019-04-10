@@ -20,6 +20,7 @@ interface ITable {
   checkSum: number
   offset: number
   length: number
+  body: number
 }
 
 function parseHeader(font: Buffer) {
@@ -48,7 +49,7 @@ function parseOffsetTable(font: Buffer): IOffsetTable {
 
 function parseTableRecord(font: Buffer, offsetTable: IOffsetTable): ITable[] {
 
-  let tables:ITable[] = []
+  let tables: ITable[] = []
 
   for (let i = 0; i < offsetTable.numTables; i++) {
     let tableRecord: Parser<any> = new Parser()
@@ -59,10 +60,16 @@ function parseTableRecord(font: Buffer, offsetTable: IOffsetTable): ITable[] {
       .uint32("offset")
       .uint32("length")
 
-      byteCount += 16
+    byteCount += 16
 
     const table = tableRecord.parse(font)
     table.tableTag = String.fromCharCode(...table.tableTag)
+
+    let tableBody: Parser<any> = new Parser()
+      .skip(table.offset)
+      .endianess("big")
+      .buffer('', { length: table.length })
+    table.body = tableBody.parse(font)
 
     tables.push(table)
   }
